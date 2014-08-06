@@ -130,12 +130,12 @@
     </tr>
     <tr class="fragment fade-in">
       <td>Route</td>
-      <td>Controller action</td>
+      <td>Controller action (index, new, edit)</td>
       <td class="fragment fade-in">wat</td>
     </tr>
     <tr class="fragment fade-in">
       <td>Controller</td>
-      <td>Service</td>
+      <td>Controller action (create, update, delete) and/or Service Object</td>
       <td class="fragment fade-in">wat</td>
     </tr>
     <tr class="fragment fade-in">
@@ -510,19 +510,64 @@
 
 <section>
   <h1>Rails</h1>
-  <pre><code class="ruby">
-  class Credit < ActiveRecord::Base
-  end
-  </code></pre>
   <pre><code>
   # in db/schema.rb
   create_table "credits" do |t|
-    t.string   "author"
+    t.string   "author_first_name"
+    t.string   "author_last_name"
     t.string   "version"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
   </code></pre>
+  <pre><code class="ruby">
+  class Credit < ActiveRecord::Base
+    def author_name
+      "#{author_first_name} #{author_last_name}"
+    end
+  end
+  </code></pre>
+</section>
+
+
+<section>
+  <h1>Ember</h1>
+  <pre><code class="javascript">
+  App.Credit = DS.Model.extend({
+    authorFirstName: DS.attr(),
+    authorLastName: DS.attr(),
+
+    authorName: function() {
+      return this.get('authorFirstName') + 
+        " " + 
+        this.get('authorLastName');
+    }.property('authorFirstName', 'authorLastName')
+  });
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/fijow/1/edit">http://emberjs.jsbin.com/fijow/1/edit</a>
+</section>
+
+<section>
+  <h1>Ember</h1>
+  <pre><code class="javascript">
+  App.IndexRoute = Ember.Route.extend({
+    model : function(){
+      return this.store.createRecord('credit',{
+        authorFirstName : "Jeremy",
+        authorLastName : "Green",
+        version : "0.0.1"
+      });
+    }
+  });
+  </code></pre>
+  <pre><code>
+  <script type="text/x-handlebars" id="index">
+    <h2>Author : {{authorName}}</h2>
+    {{input value=authorFirstName}}
+    {{input value=authorLastName}}
+  </script>
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/fijow/1/edit">http://emberjs.jsbin.com/fijow/1/edit</a>
 </section>
 
 <section>
@@ -530,8 +575,152 @@
 </section>
 
 <section>
+  <pre><code class="javascript">
+  App.IndexRoute = Ember.Route.extend({
+    model : function(){
+      var records = [];
+      records.push(this.store.createRecord('credit',{
+        authorFirstName : "Jeremy",
+        authorLastName : "Green"
+      }));
+      records.push(this.store.createRecord('credit',{
+        authorFirstName : "Ron",
+        authorLastName : "Burgandy"
+      }));
+      return records;
+    }
+  });
+  </code></pre>
+  <pre><code>
+  <script type="text/x-handlebars" id="index">
+    {{#each}}
+      <h2>Author : {{authorName}}</h2>
+      {{input value=authorFirstName}}
+      {{input value=authorLastName}}
+    {{/each}}
+  </script>
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/gamana/1/edit">http://emberjs.jsbin.com/gamana/1/edit</a>
+</section>
+
+
+
+<section>
+  <h1>Fixture Adapter</h1>
+</section>
+
+<section>
+  <pre><code>
+  App.ApplicationAdapter = DS.FixtureAdapter;
+  </code></pre>
+  <pre><code>
+  App.Credit.FIXTURES = [
+    {id : 1, authorFirstName : "Jeremy", authorLastName : "Green"},
+    {id : 2, authorFirstName : "Ron", authorLastName : "Burgandy"}
+  ];
+  </code></pre>
+  <pre><code>
+  App.IndexRoute = Ember.Route.extend({
+    model : function(){
+      return this.store.find('credit');
+    }
+  });
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/nizup/1/edit">http://emberjs.jsbin.com/nizup/1/edit</a>
+</section>
+
+
+<section>
   <h1>Controllers</h1>
 </section>
+
+<section>
+  <pre><code>
+  <script type="text/x-handlebars" id="index">
+    <h2>{{creditHeader}}</h2>
+    {{#each}}
+      <h3>Author : {{authorName}}</h3>
+      {{input value=authorFirstName}}
+      {{input value=authorLastName}}
+    {{/each}}
+    <hr/>
+    {{input value=newFirstName}}
+    {{input value=newLastName}}
+    <button {{action 'createNewCredit'}}>Create</button>
+  </script>
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/maqeb/1/edit">http://emberjs.jsbin.com/maqeb/1/edit</a>
+</section>
+<section>
+  <pre><code>
+  App.IndexController = Ember.ArrayController.extend({
+    newFirstName : "",
+    newLastName  : "",
+    
+    creditHeader : function(){
+      return this.get('length') + " Credits";
+    }.property('length'),
+    
+    actions : {
+      createNewCredit : function(){
+        var atts = {
+          authorFirstName : this.get('newFirstName'),
+          authorLastName  : this.get('newLastName')
+        }
+        this.store.createRecord('credit',atts);
+        this.setProperties({
+          newFirstName : "",
+          newLastName  : ""
+        });
+      }
+    }
+  });
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/maqeb/1/edit">http://emberjs.jsbin.com/maqeb/1/edit</a>
+</section>
+
+<section>
+  <h1>Item Controllers</h1>
+</section>
+
+
+<section>
+  <pre><code>
+  App.IndexController = Ember.ArrayController.extend({
+    itemController : "credit",
+    //...
+  });
+  </code></pre>
+
+  <pre><code>
+  App.CreditController = Ember.ObjectController.extend({
+    isEditing : false,
+    actions : {
+      toggleEdit : function(){
+        this.toggleProperty('isEditing');
+      }
+    }
+  });
+  </code></pre>
+</section>
+<section>
+  <pre><code>
+  {{#each}}
+    {{#if isEditing}}    
+      {{input value=authorFirstName}}
+      {{input value=authorLastName}}
+      <button {{action 'toggleEdit'}}>Save</button>
+    {{else}}
+      <h3>
+        Author : {{authorName}} 
+        <button {{action 'toggleEdit'}}>Edit</button>
+      </h3>
+    {{/if}}
+  {{/each}}
+  </code></pre>
+</section>
+
+
 
 <section>
   <h1>Views & Interaction</h1>
@@ -541,9 +730,7 @@
   Ember Data
 </section>
 
-<section>
-  Fixture Adapter
-</section>
+
 
 
 
