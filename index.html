@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Ember &amp; SOA</title>
+		<title>Supercharge your productivity with Ember.js</title>
 
 		<meta name="description" content="Supercharge your productivity with Ember.js">
 		<meta name="author" content="Jeremy Green">
@@ -130,12 +130,12 @@
     </tr>
     <tr class="fragment fade-in">
       <td>Route</td>
-      <td>Controller action (index, new, edit)</td>
+      <td>Controller action<br/>(index, new, edit)</td>
       <td class="fragment fade-in">wat</td>
     </tr>
     <tr class="fragment fade-in">
       <td>Controller</td>
-      <td>Controller action (create, update, delete) and/or Service Object</td>
+      <td>Controller action<br/>(create, update, delete)<br/>and/or Service Object</td>
       <td class="fragment fade-in">wat</td>
     </tr>
     <tr class="fragment fade-in">
@@ -215,9 +215,24 @@
   <p class="fragment fade-in">* These components are artifacts of developing an app<br/>to be run inside of a browser.</p>
 </section>
 
+<section>
+  <h1>PatternLab Demo</h1>
+  <a href="http://emberjs.jsbin.com/falat/2/edit?output">http://emberjs.jsbin.com/falat/2/edit?output</a>
+</section>
 
 <section>
-  <h1>A Very Simple App</h1>
+  <h1>Show of hands</h1>
+  <h2>The plan</h2>
+    <ol>
+      <li>Goal</li>
+      <li>Rails way</li>
+      <li>Ember way</li>
+      <li>GOTO Goal</li>
+    </ol>
+</section>
+
+<section>
+  <h1>Starting With A Very Simple App</h1>
 </section>
 
 <section>
@@ -249,12 +264,15 @@
 
   <pre><code>
   App = Ember.Application.create();
-
+  </code></pre>
+  <pre><code>
   &lt;script type="text/x-handlebars"&gt;
-    &lt;h1&gt;This app is useless!&lt;/h1&gt;
+    <h2>Welcome to the Pattern Lab!</h2>
+    <p>Your home for procedurally generated patterns.</p>
+    <p>This is a small demo app built with Ember and Ember Data.</p>
   &lt;/script&gt;
   </code></pre>
-  <a href="http://emberjs.jsbin.com/vizepi/3/edit">http://emberjs.jsbin.com/vizepi/3/edit</a>
+  <a href="http://emberjs.jsbin.com/guyed/1/edit">http://emberjs.jsbin.com/guyed/1/edit</a>
   <br /><br />
   <h3 class="fragment fade-in">Ember "magic" at work.</h3>
   <br />
@@ -286,7 +304,7 @@
     &lt;h1&gt;This app is verbose AND useless!&lt;/h1&gt;
   &lt;/script&gt;
   </code></pre>
-  <a href="http://emberjs.jsbin.com/boyim/1/edit">http://emberjs.jsbin.com/boyim/1/edit</a>
+  <a href="http://emberjs.jsbin.com/boyim/3/edit">http://emberjs.jsbin.com/boyim/3/edit</a>
 </section>
 
 
@@ -326,16 +344,23 @@
   <h1>Ember</h1>
   <pre><code>
   <script type="text/x-handlebars">
-    <h1>This is the layout</h1>
-    <hr/>
+    <div class="header">
+      <h1 id='title'>
+        {{#link-to 'index'}}PatternLab{{/link-to}}
+      </h1>
+    </div>
+
     {{outlet}}
   </script>
+ 
 
   <script type="text/x-handlebars" id="index">
-    <p>This is the index</p>
+    <h2>Welcome to the Pattern Lab!</h2>
+    <p>Your home for procedurally generated patterns.</p>
+    <p>This is a small demo app built with Ember and Ember Data.</p>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/boyim/2/edit">http://emberjs.jsbin.com/boyim/2/edit</a>
+  <a href="http://emberjs.jsbin.com/rumit/1/edit">http://emberjs.jsbin.com/rumit/1/edit</a>
 </section>
 
 
@@ -372,18 +397,68 @@
   </code></pre>
   <pre class="fragment fade-in"><code>
   <script type="text/x-handlebars" id="about">
-    <p>About</p>
-  </script>
-
-  <script type="text/x-handlebars">
-    <h1>This is the layout</h1>
-    {{#link-to 'index'}}Home{{/link-to}} |
-    {{#link-to 'about'}}About{{/link-to}}
-    <hr/>
-    {{outlet}}
+    <h2>About</h2>
+    <p>PatternLab is a small demo appliction of Ember.</p>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/juhop/2/edit">http://emberjs.jsbin.com/juhop/2/edit</a>
+  <pre class="fragment fade-in"><code>
+  <script type="text/x-handlebars">
+    <!-- ... -->
+    {{#link-to 'about'}}About{{/link-to}}
+    <!-- ... -->
+  </script>
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/falat/3/edit">http://emberjs.jsbin.com/falat/3/edit</a>
+</section>
+
+
+
+
+
+<section>
+  <h1>Templates</h1>
+  <br />
+  <h3>The markup for the stuff that<br/>a user actually sees</h3>
+</section>
+<section>
+  <h1>Handlebars</h1>
+  <img src="img/handlebars.png" alt="" />
+</section>
+<section>
+  <h3>Handlebars templates are dumb</h3>
+  <img src="img/troll.png" alt="" width="300" class="fragment fade-in"/>
+  <p class="fragment fade-in">They can't contain much logic.</p>
+  <p class="fragment fade-in">Logic goes in the View.</p>
+</section>
+<!--
+<section>
+  <h3>But they're smart when it<br/>comes to data binding</h3>
+  <br />
+  <pre><code>
+    &lt;script type="text/x-handlebars" data-template-name="index"&gt;
+      &lt;p&gt;Created by : {{fullName}}&lt;/p&gt;
+      &lt;p&gt;
+      {{view Em.TextField valueBinding='content.firstName'}}
+      {{view Em.TextField valueBinding='content.lastName'}}
+      &lt;/p&gt;
+    &lt;/script&gt;
+  </code></pre>
+</section>
+-->
+
+
+<section>
+  <h1>Router</h1>
+  <br />
+  <h3>Browser URL logic</h3>
+  <br />
+  <p>The 'map' for distinct parts of your app</p>
+  <br />
+  <p class="fragment fade-in">gives you bookmarkable/shareable URLs within your app</p>
+  <br />
+  <p class="fragment fade-in">handles reading/writing the URL bar</p>
+  <br />
+  <p class="fragment fade-in">passes 'path variables' into your Route</p>
 </section>
 
 
@@ -395,7 +470,7 @@
     <li>Sets Initial State</li>
   </ul>
   <br/><br/><br/>
-  <a href="http://emberjs.jsbin.com/juhop/2#/about">http://emberjs.jsbin.com/juhop/2#/about</a>
+  <a href="http://emberjs.jsbin.com/falat/3#/about">http://emberjs.jsbin.com/falat/3#/about</a>
 </section>
 
 
@@ -433,8 +508,11 @@
     <hr/>&amp;copy; OctoLabs
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/vopin/1/edit">http://emberjs.jsbin.com/vopin/1/edit</a>
+  <a href="http://emberjs.jsbin.com/jevexo/1/edit">http://emberjs.jsbin.com/jevexo/1/edit</a>
 </section>
+
+
+
 
 
 <section>
@@ -448,7 +526,6 @@
   class StaticPagesController < ApplicationController
     def about
       @about_data = {
-        :author => "Jeremy Green",
         :version => "0.0.1"
       }
     end
@@ -457,20 +534,23 @@
   <pre class="fragment fade-in"><code class="html">
   <!-- app/views/static_pages/about.html.erb -->
   <h1>About</h1>
-  <ul>
-    <li>Author : <%= @about_data['author'] %></li>
-    <li>Version : <%= @about_data['version'] %></li>
-  </ul>
+  <p>Version : <%= @about_data['version'] %></p>
   </code></pre>
+</section>
+
+<section>
+  <h1>Route</h1>
+  <br />
+  <h3>Controller setup</h3>
+  <h3>Model creation/lookup/filtering</h3>
 </section>
 
 <section>
   <h1>Ember</h1>
   <pre><code class="javascript">
-  App.AboutRoute = Ember.Route.extend({
+  App.IndexRoute = Ember.Route.extend({
     model : function(){
       return {
-        author : "Jeremy Green",
         version : "0.0.1"
       };
     }
@@ -478,15 +558,12 @@
   </code></pre>
 
   <pre class="fragment fade-in"><code class="html">
-  <script type="text/x-handlebars" id="about">
-    <p>About</p>
-    <ul>
-      <li>Author : {{author}}</li>
-      <li>Version : {{version}}</li>
-    </ul>
+  <script type="text/x-handlebars" id="index">
+    <!-- ... -->
+    <p>Version : {{version}}</p>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/sotid/2/edit">http://emberjs.jsbin.com/sotid/2/edit</a>
+  <a href="http://emberjs.jsbin.com/wiyoh/1/edit">http://emberjs.jsbin.com/wiyoh/1/edit</a>
 </section>
 
 
@@ -495,114 +572,92 @@
   <h1>Data Binding</h1>
   <pre class="fragment fade-in"><code class="html">
   <script type="text/x-handlebars" id="index">
-    <h2>{{author}}</h2>
-    {{input value=author}}
+    <!-- ... -->
+    <p>Version : {{version}}</p>
+    {{input value=version}}
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/zetele/1/edit">http://emberjs.jsbin.com/zetele/1/edit</a>
+  <a href="http://emberjs.jsbin.com/leyog/1/edit">http://emberjs.jsbin.com/leyog/1/edit</a>
 
 </section>
 
 
 <section>
   <h1>Models</h1>
+  <h2>Object wrapper for data</h2>
 </section>
 
 <section>
   <h1>Rails</h1>
   <pre><code>
   # in db/schema.rb
-  create_table "credits" do |t|
-    t.string   "author_first_name"
-    t.string   "author_last_name"
-    t.string   "version"
+  create_table "patterns" do |t|
+    t.integer   "p1"
+    t.integer   "p2"
+    t.integer   "p3"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
   </code></pre>
   <pre><code class="ruby">
-  class Credit < ActiveRecord::Base
-    def author_name
-      "#{author_first_name} #{author_last_name}"
+  class Pattern < ActiveRecord::Base
+    def name
+      "#{p1}-#{p2}-#{p3}"
     end
   end
   </code></pre>
+  <pre><code>
+  Route/controller/view stuff here!
+  </code></pre>
 </section>
 
 
 <section>
   <h1>Ember</h1>
   <pre><code class="javascript">
-  App.Credit = DS.Model.extend({
-    authorFirstName: DS.attr(),
-    authorLastName: DS.attr(),
+  App.Pattern = DS.Model.extend({
+    p1 : DS.attr('number'),
+    p2 : DS.attr('number'),
+    p3 : DS.attr('number'),
 
-    authorName: function() {
-      return this.get('authorFirstName') + 
-        " " + 
-        this.get('authorLastName');
-    }.property('authorFirstName', 'authorLastName')
+    name : function(){
+      return this.get('p1') + '-' +
+             this.get('p2') + '-' +
+             this.get('p3');
+    }.property('p1','p2','p3')
   });
   </code></pre>
-  <a href="http://emberjs.jsbin.com/fijow/1/edit">http://emberjs.jsbin.com/fijow/1/edit</a>
+  <pre><code class="javascript">
+  App.Router.map(function() {
+    // ...
+    this.resource('patterns');
+  });
+  </code></pre>
 </section>
 
 <section>
   <h1>Ember</h1>
   <pre><code class="javascript">
-  App.IndexRoute = Ember.Route.extend({
+  App.PatternsRoute = Ember.Route.extend({
     model : function(){
-      return this.store.createRecord('credit',{
-        authorFirstName : "Jeremy",
-        authorLastName : "Green",
-        version : "0.0.1"
-      });
+      return [this.store.createRecord('pattern',
+        { p1 : 1, p2 : 2, :p3 : 5}
+      )];
     }
   });
   </code></pre>
-  <pre><code>
-  <script type="text/x-handlebars" id="index">
-    <h2>Author : {{authorName}}</h2>
-    {{input value=authorFirstName}}
-    {{input value=authorLastName}}
-  </script>
-  </code></pre>
-  <a href="http://emberjs.jsbin.com/fijow/1/edit">http://emberjs.jsbin.com/fijow/1/edit</a>
-</section>
-
-<section>
-  <h1>Collections</h1>
-</section>
-
-<section>
   <pre><code class="javascript">
-  App.IndexRoute = Ember.Route.extend({
-    model : function(){
-      var records = [];
-      records.push(this.store.createRecord('credit',{
-        authorFirstName : "Jeremy",
-        authorLastName : "Green"
-      }));
-      records.push(this.store.createRecord('credit',{
-        authorFirstName : "Ron",
-        authorLastName : "Burgandy"
-      }));
-      return records;
-    }
-  });
-  </code></pre>
-  <pre><code>
-  <script type="text/x-handlebars" id="index">
-    {{#each}}
-      <h2>Author : {{authorName}}</h2>
-      {{input value=authorFirstName}}
-      {{input value=authorLastName}}
-    {{/each}}
+  <script type="text/x-handlebars" id="patterns">
+    <h2>Latest Patterns</h2>
+    <ul>
+      {{#each}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/gamana/1/edit">http://emberjs.jsbin.com/gamana/1/edit</a>
+  <a href="http://emberjs.jsbin.com/letok/1/edit">http://emberjs.jsbin.com/letok/1/edit</a>
 </section>
-
 
 
 <section>
@@ -614,26 +669,317 @@
   App.ApplicationAdapter = DS.FixtureAdapter;
   </code></pre>
   <pre><code>
-  App.Credit.FIXTURES = [
-    {id : 1, authorFirstName : "Jeremy", authorLastName : "Green"},
-    {id : 2, authorFirstName : "Ron", authorLastName : "Burgandy"}
-  ];
+  App.Pattern.reopenClass({
+    FIXTURES: [
+      { id: 1, p1 : 1, p2 : 2, p3 : 5},
+      { id: 2, p1 : 42, p2 : 142, p3 : 242},
+      { id: 3, p1 : 100, p2 : 200, p3 : 300}
+    ]
+  });
   </code></pre>
   <pre><code>
-  App.IndexRoute = Ember.Route.extend({
+  App.PatternsRoute = Ember.Route.extend({
     model : function(){
-      return this.store.find('credit');
+      return this.store.find('pattern');
     }
   });
   </code></pre>
-  <a href="http://emberjs.jsbin.com/nizup/1/edit">http://emberjs.jsbin.com/nizup/1/edit</a>
+  <a href="http://emberjs.jsbin.com/vibeza/2/edit">http://emberjs.jsbin.com/vibeza/2/edit</a>
+</section>
+
+<section>
+  <h2>Dynamic routes<br/><br/> & <br/><br/>Nested routes and templates</h2>
+</section>
+
+<section>
+  <h1>Ember</h1>
+  <pre><code>
+  App.Router.map(function() {
+    this.resource('patterns',function(){
+      this.resource('pattern', { path: '/:pattern_id' });
+    });
+  });
+  </code></pre>
+  <pre><code class="javascript">
+  <script type="text/x-handlebars" id="pattern">
+    <h3>{{name}}</h3>
+  </script>
+  </code></pre>
+</section>
+<section>
+  <pre><code class="javascript">
+  <script type="text/x-handlebars" id="patterns">
+    <h2>Latest Patterns</h2>
+    <ul>
+      {{#each}}
+        <li>
+          {{#link-to 'pattern' this}}{{name}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+    {{outlet}}
+  </script>
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/gekuw/1/edit">http://emberjs.jsbin.com/gekuw/1/edit</a>
+</section>
+
+<section>
+  <h1>Rendering a pattern</h1>
+  <h2>Components and/or Views</h2>
+  <h2>Which one to use?</h2>
+</section>
+
+<section>
+  <h2>Component</h2>
+  <ul>
+    <li>Isolated (No application context)</li>
+    <li>Only knows about whatever you pass in to it</li>
+  </ul>
+  <br/><br/>
+  <br/><br/>
+  <h2>View</h2>
+  <ul>
+    <li>Not-Isolated (Has appication context)</li>
+    <li>Knows about the controller for the current template</li>
+  </ul>
+  <br/><br/>
+  <br/><br/>
+  <h2>Use Components if at all possible</h2>
+</section>
+
+<section>
+  <h1>Components &amp; Views</h1>
+  <br />
+  <h3>Interaction logic</h3>
+  <br />
+  <p class="fragment fade-in">This is the place for jQuery DOM selectors and<br/>integration with other JS libs.</p>
+  <br />
+  <p class="fragment fade-in">Probably.</p>
+</section>
+<section>
+  <h2>Views are rarely needed</h2>
+  <br />
+  <p class="fragment fade-in">From the Ember View doc:</p>
+  <blockquote class="fragment fade-in">
+    Views in Ember.js are typically only created for the following reasons:
+    <br/><br />
+    When you need sophisticated handling<br/> of user events
+    <br/><br />
+    When you want to create<br/> a re-usable component
+    <br /><br />
+    Often, both of these requirements will be present at the same time.
+  </blockquote>
+</section>
+<section>
+  <h3>
+    Views should receive raw browser events and translate them
+    into semantically meaningful actions within the app.
+  </h3>
+</section>
+
+
+
+
+
+
+<section>
+  <h2>Pattern Display Component</h2>
+  <pre><code class="javascript">
+  {{pattern-display pattern=model width="256" height="256"}}
+  </code></pre>
+  <pre><code class="javascript">
+  <script type="text/x-handlebars" id="components/pattern-display">
+    <canvas {{bind-attr id=canvasId
+                        width=width
+                        height=height
+    }}></canvas>
+  </script>
+  </code></pre>
+</section>
+<section>
+  <pre><code class="javascript">
+  App.PatternDisplayComponent = Ember.Component.extend({
+    drawPattern : function(){
+      var ch = new Chromanin(256,this.get('canvasId')),
+          p1 = this.get('pattern.p1'),
+          p2 = this.get('pattern.p2'),
+          p3 = this.get('pattern.p3');
+      ch.initlayers(256,256);
+      ch.checkerBoardLayer(0,16,16,p1,p2,p3,0,0,128);
+      ch.sineDistort(0,0,0.100000001490116,p1,p2,p3);
+      ch.addLayers(0,1,4,1,1);
+      ch.addLayers(4,2,4,1,1);
+      ch.addLayers(4,3,4,1,1);
+      ch.writeCanvas();
+    }
+    // ...
+  });
+  </code></pre>
+</section>
+
+<section>
+  <pre><code class="javascript">
+  App.PatternDisplayComponent = Ember.Component.extend({
+    // ...
+    didInsertElement : function(){
+      this.drawPattern();
+    },
+
+    automaticUpdate : function(){
+      Ember.run.next(this,function(){
+        this.drawPattern();
+      });
+    }.observes('pattern','pattern.p1','pattern.p2','pattern.p3'),
+
+    canvasId : function(){
+      return "canvas-" + Math.floor((Math.random() * 1000000) + 1);;
+    }.property('pattern.id')
+  });
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/hatev/1/edit">http://emberjs.jsbin.com/hatev/1/edit</a>
+</section>
+
+
+
+
+
+<section>
+  <h1>Create a new pattern</h1>
+</section>
+
+<section>
+  <pre><code class="javascript">
+  {{#link-to 'patterns.new'}}New Pattern{{/link-to}}
+  </code></pre>
+  <pre><code class="javascript">
+  <script type="text/x-handlebars" id="patterns/new">
+    <h2>Create a new Pattern</h2>
+    {{input value=p1 type='number'}}
+    {{input value=p2 type='number'}}
+    {{input value=p3 type='number'}}
+    <button {{action randomize}}>Randomize</button>
+    <button {{action savePattern}}>Save</button>
+    <br/><br/>
+    {{pattern-display pattern=model width="256" height="256"}}
+  </script>
+  </code></pre>
+  <pre><code>
+  App.Router.map(function() {
+    this.resource('patterns',function(){
+      this.resource('pattern', { path: '/:pattern_id' });
+      this.route('new');
+    });
+  });
+  </code></pre>
+</section>
+
+<section>
+  <pre><code class="javascript">
+  App.PatternsNewRoute = Ember.Route.extend({
+    model : function(){
+      return this.store.createRecord('pattern');
+    }
+  });
+  </code></pre>
+</section>
+
+<section>
+  <h1>Controllers</h1>
+  <br />
+  <h3>Business logic</h3>
+  <br />
+  <p class="fragment fade-in">
+    Manipulaiton of models and triggering of related events.
+  </p>
+  <br />
+  <p class="fragment fade-in">Also a good place for transaction management.</p>
+</section>
+
+<section>
+  <h2>Controllers come in two flavors</h2>
+  <br />
+  <ul>
+    <li class="fragment fade-in">ObjectController - represents one single model object.<br /><br /></li>
+    <li class="fragment face-in">ArrayController - represents a collection of model objects.</li>
+  </ul>
 </section>
 
 
 <section>
-  <h1>Controllers</h1>
+  <pre><code class="javascript">
+  App.PatternsNewController = Ember.ObjectController.extend({
+    actions : {
+      savePattern : function(){
+        this.transitionToRoute('pattern',this.get('model'));
+      },
+      randomize : function(){
+        this.setProperties({
+          p1 : Math.floor((Math.random() * 1000) + 1),
+          p2 : Math.floor((Math.random() * 1000) + 1),
+          p3 : Math.floor((Math.random() * 1000) + 1)
+        });
+      }
+    }
+  });
+  
+  </code></pre>
 </section>
 
+<section>
+  <h1>REST Adapter</h1>
+</section>
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+
+<section>
+  <pre><code>
+  
+  </code></pre>
+</section>
+
+
+<!--
 <section>
   <pre><code>
   <script type="text/x-handlebars" id="index">
@@ -719,7 +1065,7 @@
   {{/each}}
   </code></pre>
 </section>
-
+-->
 
 
 <section>
