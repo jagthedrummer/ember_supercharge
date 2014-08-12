@@ -41,16 +41,245 @@
 			<div class="slides">
 
         <section data-background="img/lan_su_tomster.jpg" data-state="intro">
-          <h1>Supercharge your productivity with Ember.js</h1>
+          <!--img src="img/ThatConfLogo.png" class="no-border"/-->
+          <br/><br/><br/>
+          <br/><br/><br/>
+          <br/><br/><br/>
+          <br/><br/><br/>
+          <br/>
+          <h1 class="smaller-yet">Supercharge your productivity with Ember.js</h1>
           <!--div class="subtitle fragment">
             <h3>Stumbling towards SOA</h3>
             <h3>The story of CloudHDR</h3>
           </div-->
         </section>
 
-        <section>
-          <h1>Supercharge your productivity with Ember.js</h1>
-        </section>
+<section>
+  <h1>Show of hands</h1>
+  <br/>
+  <ul>
+    <li class="fragment fade-in">Who has experience with Ember?</li>
+    <br/>
+    <li class="fragment fade-in">Who has experience with Rails or .NET MVC?</li>
+  </ul>
+</section>
+
+
+<section>
+  <h2>Where does the face<br/>of your web app live?</h2>
+  <br/><br/>
+  <h2 class="">Where is it generated?</h2>
+</section>
+<section>
+  <h2>The 'traditional' web app</h2>
+  <br />
+  <ol>
+    <li class="">Generate a giant string of HTML on the server<br/><br/></li>
+    <li class="">Deliver a fully formed 'document' to the browser <br /><br /></li>
+    <li class="">Apply a sprinkle of JavaScript <br /><br /></li>
+    <li class="fade-in">Replace bits of markup via AJAX</li>
+  </ol>
+</section>
+<section>
+  <h2>An Ember web app</h2>
+  <br />
+  <ol>
+    <li class="fade-in">Deliver empty application assets to the browser <br /><br /></li>
+    <li class="fade-in">Pull/push raw data via JSON <br /><br /></li>
+    <li class="fade-in">Assemble the 'document' in the browser</li>
+  </ol>
+</section>
+
+<section>
+  <h1>MVC<span class="fragment appear">-ish</span></h1>
+  <br />
+  <div class="fragment fade-in">
+  <p class="">NOT server side MVC</p>
+  <br />
+  <p class="">Many of the same terms<br/>but sometimes they mean different things</p>
+  </div>
+</section>
+<section>
+  <h1>MVC<span class="fragment fade-in">+</span></h1>
+  <ul>
+    <li>Model</li>
+    <li>View</li>
+    <li>Controller</li>
+    <li class="fragment fade-in">Router</li>
+    <li class="fragment fade-in">Route</li>
+    <li class="fragment fade-in">Template</li>
+  </ul>
+</section>
+<section>
+  <h3>Over Simplified Request Path</h3>
+  <br />
+  <div class="fade-in">Router</div>
+  <div class="fade-in">&darr;<br />Route</div>
+  <div class="fade-in">&darr;<br />Model</div>
+  <div class="fade-in">&darr;<br />Controller</div>
+  <div class="fade-in">&darr;<br />View</div>
+  <div class="fade-in">&darr;<br />Template</div>
+</section>
+<!--
+<section>
+  <h2>Let's compare with Rails MVC<span class="fragment fade-in">+</span></h2>
+  <br>
+  <h3 class="fragment fade-in">MVC+ == MVC SPD</h3>
+  <br />
+  <h3 class="fragment fade-in">Services &amp; Presenters/Decorators</h3>
+</section>
+-->
+<!--
+<section>
+  <h3>Comparison with Rails MVC SPD</h3>
+  <br />
+  <table class="comparison">
+    <tr>
+      <th>Ember</th>
+      <th>Rails</th>
+      <th>My Reaction</th>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Router</td>
+      <td>config/routes.rb</td>
+      <td class="fragment fade-in">makes sense</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Route</td>
+      <td>Controller action<br/>(index, new, edit)</td>
+      <td class="fragment fade-in">wat</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Controller</td>
+      <td>Controller action<br/>(create, update, delete)<br/>and/or Service Object</td>
+      <td class="fragment fade-in">wat</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Model</td>
+      <td>Model</td>
+      <td class="fragment fade-in">Yay!</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>View</td>
+      <td>Presenter/Decorator</td>
+      <td class="fragment fade-in">wat</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Template</td>
+      <td>View/template</td>
+      <td class="fragment fade-in">wat</td>
+    </tr>
+  </table>
+</section>
+-->
+<section>
+  <h3>Comparison with Rails - Similarities</h3>
+  <h3>Ember <=> Rails</h3>
+  <br />
+  <div class="fragment fade-in">
+    <p>Router <=> config/routes.rb</p>
+    <p>Connect URLs to code paths</p>
+    <hr/>
+  </div>
+
+  <div class="fragment fade-in">
+    <p>Model <=> Model</p>
+    <p>Object wrapper for business data</p>
+    <hr/>
+  </div>
+
+  <div class="fragment fade-in">
+    <p>Templates <=> Templates</p>
+    <p>Markup for UI</p>
+  </div>
+</section>
+
+<section>
+  <h3>Comparison with Rails - Differences</h3>
+  <h3>Ember <=> Rails</h3>
+  <br/>
+  <div class="fragment fade-in">
+    <p>Route <=> GET Controller actions (index, new, edit)</p>
+    <p>Setup data for user interaction</p>
+    <hr/>
+  </div>
+
+  <div class="fragment fade-in">
+    <p>Controller <=> Other Controller actions (create, etc...)</p>
+    <p>Handle user interactions and input</p>
+    <hr/>
+  </div>
+
+
+  <div class="fragment fade-in">
+    <p>Views <=> jQuery Sprinkle</p>
+    <p>Interaction &amp; DOM Logic</p>
+  </div>
+
+</section>
+
+<section>
+  <h2>WAT?!?</h2>
+  <br />
+  <h2 class="fragment fade-in">Context Matters!</h2>
+  <br />
+  <h2 class="fragment fade-in">Different needs<br/>call for different solutions</h2>
+</section>
+<section>
+  <h3>Rails is stateless</h3>
+  <br />
+  <h3>Ember apps are stateful</h3>
+  <br /><br />
+  <div class="fragment fade-in">
+    <h3 class="fade-in">Rails has an explicit<br />request/response cycle</h3>
+    <br />
+    <h3 class="fade-in">Ember apps are long running<br />with internal state transitions</h3>
+  </div>
+</section>
+
+<!--
+<section>
+  <h1>Understanding the pieces</h1>
+</section>
+<section>
+  <table class="comparison">
+    <tr>
+      <th>Component</th>
+      <th>Function</th>
+    </tr>
+
+    <tr class="fragment fade-in">
+      <td>Model</td>
+      <td>Object wrapper for business data</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>View</td>
+      <td>Interaction logic</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Controller</td>
+      <td>Business logic</td>
+    </tr>
+    <tr class="fragment fade-in">
+      <td>Route</td>
+      <td>Controller setup / Model lookup &amp; filtering</td>
+    </tr>
+
+    <tr class="fragment fade-in">
+      <td>Template</td>
+      <td>Markup for UI *</td>
+    </tr>
+
+    <tr class="fragment fade-in">
+      <td>Router</td>
+      <td>Browser/URL logic *</td>
+    </tr>
+
+  </table>
+  <br /><br />
+  <p class="fragment fade-in">* These components are artifacts of developing an app<br/>to be run inside of a browser.</p>
+</section>
+-->
 
 <section>
   <table border="0" class="vert-middle" width="100%">
@@ -94,183 +323,34 @@
   </aside>
 </section>
 
-<section>
-  <h2>Where does the face<br/>of your web app live?</h2>
-  <br/><br/>
-  <h2 class="fragment fade-in">Where is it generated?</h2>
-</section>
-<section>
-  <h2>The 'traditional' web app</h2>
-  <br />
-  <ol>
-    <li class="fragment fade-in">Generate a giant string of HTML on the server<br/><br/></li>
-    <li class="fragment fade-in">Deliver a fully formed 'document' to the browser <br /><br /></li>
-    <li class="fragment fade-in">Apply a sprinkle of JavaScript <br /><br /></li>
-    <li class="fragment fade-in">Replace bits of markup via AJAX</li>
-  </ol>
-</section>
-<section>
-  <h2>An Ember web app</h2>
-  <br />
-  <ol>
-    <li class="fragment fade-in">Deliver empty application assets to the browser <br /><br /></li>
-    <li class="fragment fade-in">Pull/push raw data via JSON <br /><br /></li>
-    <li class="fragment fade-in">Assemble the 'document' in the browser</li>
-  </ol>
+
+<section data-background="img/memorial_tomster.jpg" data-state="title-slide">
+  <h1>The Plan</h1>
 </section>
 
 <section>
-  <h1>MVC<span class="fragment appear">-ish</span></h1>
-  <br />
-  <p class="fragment fade-in">NOT server side MVC</p>
-  <br />
-  <p class="fragment fade-in">Many of the same terms<br/>but they mean different things</p>
-</section>
-<section>
-  <h1>MVC<span class="fragment fade-in">+</span></h1>
-  <ul>
-    <li>Model</li>
-    <li>View</li>
-    <li>Controller</li>
-    <li class="fragment fade-in">Router</li>
-    <li class="fragment fade-in">Route</li>
-    <li class="fragment fade-in">Template</li>
-  </ul>
-</section>
-<section>
-  <h3>Over Simplified Request Path</h3>
-  <br />
-  <div class="fragment fade-in">Router</div>
-  <div class="fragment fade-in">&darr;<br />Route</div>
-  <div class="fragment fade-in">&darr;<br />Model</div>
-  <div class="fragment fade-in">&darr;<br />Controller</div>
-  <div class="fragment fade-in">&darr;<br />View</div>
-  <div class="fragment fade-in">&darr;<br />Template</div>
-</section>
-<section>
-  <h2>Let's compare with Rails MVC<span class="fragment fade-in">+</span></h2>
-  <br>
-  <h3 class="fragment fade-in">MVC+ == MVC SPD</h3>
-  <br />
-  <h3 class="fragment fade-in">Services &amp; Presenters/Decorators</h3>
-</section>
-<section>
-  <h3>Comparison with Rails MVC SPD</h3>
-  <br />
-  <table class="comparison">
-    <tr>
-      <th>Ember</th>
-      <th>Rails</th>
-      <th>My Reaction</th>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Router</td>
-      <td>config/routes.rb</td>
-      <td class="fragment fade-in">makes sense</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Route</td>
-      <td>Controller action<br/>(index, new, edit)</td>
-      <td class="fragment fade-in">wat</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Controller</td>
-      <td>Controller action<br/>(create, update, delete)<br/>and/or Service Object</td>
-      <td class="fragment fade-in">wat</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Model</td>
-      <td>Model</td>
-      <td class="fragment fade-in">Yay!</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>View</td>
-      <td>Presenter/Decorator</td>
-      <td class="fragment fade-in">wat</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Template</td>
-      <td>View/template</td>
-      <td class="fragment fade-in">wat</td>
-    </tr>
-  </table>
-</section>
-<section>
-  <h2>WAT?!?</h2>
-  <br />
-  <h1 class="fragment fade-in">Context Matters!</h1>
-  <br />
-  <h2 class="fragment fade-in">Different needs<br/>call for different solutions</h2>
-</section>
-<section>
-  <h3>Rails is stateless</h3>
-  <br />
-  <h3 class="fragment fade-in">Ember apps are stateful</h3>
-  <br /><br />
-  <h3 class="fragment fade-in">Rails has an explicit<br />request/response cycle</h3>
-  <br />
-  <h3 class="fragment fade-in">Ember apps are long running<br />with internal state transitions</h3>
-</section>
-
-
-<section>
-  <h1>Understanding the pieces</h1>
-</section>
-<section>
-  <table class="comparison">
-    <tr>
-      <th>Component</th>
-      <th>Function</th>
-    </tr>
-
-    <tr class="fragment fade-in">
-      <td>Model</td>
-      <td>Object wrapper for business data</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>View</td>
-      <td>Interaction logic</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Controller</td>
-      <td>Business logic</td>
-    </tr>
-    <tr class="fragment fade-in">
-      <td>Route</td>
-      <td>Controller setup / Model lookup &amp; filtering</td>
-    </tr>
-
-    <tr class="fragment fade-in">
-      <td>Template</td>
-      <td>Markup for UI *</td>
-    </tr>
-
-    <tr class="fragment fade-in">
-      <td>Router</td>
-      <td>Browser/URL logic *</td>
-    </tr>
-
-  </table>
-  <br /><br />
-  <p class="fragment fade-in">* These components are artifacts of developing an app<br/>to be run inside of a browser.</p>
-</section>
-
-<section>
-  <h1>PatternLab Demo</h1>
-  <a href="http://emberjs.jsbin.com/falat/8/edit?output">http://emberjs.jsbin.com/falat/8/edit?output</a>
-  
-</section>
-
-<section>
-  <h1>Show of hands</h1>
-  <h2>The plan</h2>
+  <h1>The Plan</h1>
+  <br/>
     <ol>
-      <li>Goal</li>
-      <li>Rails way</li>
+      <li>State a Goal</li>
+      <br/>
+      <li>Rails way (sometimes)</li>
+      <br/>
       <li>Ember way</li>
-      <li>GOTO Goal</li>
+      <br/>
+      <li>GOTO 1</li>
     </ol>
 </section>
+
+
+<section>
+  <h2>PatternLab Demo</h2>
+  <a href="http://emberjs.jsbin.com/falat/8/edit?output">http://emberjs.jsbin.com/falat/8/edit?output</a>
+  <hr/>
+  <img src="img/pattern-lab-demo.gif" class="no-border"/>
+</section>
+
+
 
 <section>
   <h1>Starting With A Very Simple App</h1>
@@ -313,11 +393,19 @@
     <p>This is a small demo app built with Ember and Ember Data.</p>
   &lt;/script&gt;
   </code></pre>
-  <a href="http://emberjs.jsbin.com/guyed/1/edit">http://emberjs.jsbin.com/guyed/1/edit</a>
   <br /><br />
-  <h3 class="fragment fade-in">Ember "magic" at work.</h3>
+</section>
+
+<section>
+  <a href="http://emberjs.jsbin.com/guyed/1/edit">http://emberjs.jsbin.com/guyed/1/edit</a>
+  <hr />
+  <img src="img/simple-app.gif" class="no-border"/>
+</section>
+
+<section>
+  <h3 class="">Ember "magic" at work.</h3>
   <br />
-  <h3 class="fragment fade-in">Only write the parts you need.</h3>
+  <h3 class="">Only write the parts you need.</h3>
   <br/>
 </section>
 
@@ -401,9 +489,13 @@
     <p>This is a small demo app built with Ember and Ember Data.</p>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/rumit/1/edit">http://emberjs.jsbin.com/rumit/1/edit</a>
 </section>
 
+<section>
+  <a href="http://emberjs.jsbin.com/rumit/1/edit">http://emberjs.jsbin.com/rumit/1/edit</a>
+  <hr />
+  <img src="img/application-layout.gif" class="no-border"/>
+</section>
 
 
 <section>
@@ -449,12 +541,18 @@
     <!-- ... -->
   </script>
   </code></pre>
+</section>
+
+<section>
   <a href="http://emberjs.jsbin.com/falat/3/edit">http://emberjs.jsbin.com/falat/3/edit</a>
+  <hr />
+  <img src="img/adding-a-page.gif" class="no-border"/>
 </section>
 
 
-
-
+<section data-background="img/window_tomster.jpg" data-state="title-slide">
+  <h1>Aside</h1>
+</section>
 
 <section>
   <h1>Templates</h1>
@@ -500,9 +598,12 @@
   <p class="fragment fade-in">handles reading/writing the URL bar</p>
   <br />
   <p class="fragment fade-in">passes 'path variables' into your Route</p>
+  <br/><br/><br/>
+  <a href="http://emberjs.jsbin.com/falat/3#/about">http://emberjs.jsbin.com/falat/3#/about</a>
 </section>
 
 
+<!--
 <section>
   <h1>Benefits of the Router</h1>
   <ul>
@@ -513,6 +614,8 @@
   <br/><br/><br/>
   <a href="http://emberjs.jsbin.com/falat/3#/about">http://emberjs.jsbin.com/falat/3#/about</a>
 </section>
+-->
+
 
 
 
@@ -549,9 +652,14 @@
     <hr/>&amp;copy; OctoLabs
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/jevexo/1/edit">http://emberjs.jsbin.com/jevexo/1/edit</a>
 </section>
 
+
+<section>
+  <a href="http://emberjs.jsbin.com/jevexo/1/edit">http://emberjs.jsbin.com/jevexo/1/edit</a>
+  <hr />
+  <img src="img/rendering-partials.gif" class="no-border"/>
+</section>
 
 
 
@@ -604,24 +712,33 @@
     <p>Version : {{version}}</p>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/wiyoh/1/edit">http://emberjs.jsbin.com/wiyoh/1/edit</a>
 </section>
 
+
+<section>
+  <a href="http://emberjs.jsbin.com/wiyoh/1/edit">http://emberjs.jsbin.com/wiyoh/1/edit</a>
+  <hr />
+  <img src="img/displaying-data.gif" class="no-border"/>
+</section>
 
 
 <section>
   <h1>Data Binding</h1>
-  <pre class="fragment fade-in"><code class="html">
+  <pre class="fade-in"><code class="html">
   <script type="text/x-handlebars" id="index">
     <!-- ... -->
     <p>Version : {{version}}</p>
     {{input value=version}}
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/leyog/1/edit">http://emberjs.jsbin.com/leyog/1/edit</a>
-
 </section>
 
+
+<section>
+  <a href="http://emberjs.jsbin.com/leyog/1/edit">http://emberjs.jsbin.com/leyog/1/edit</a>
+  <hr />
+  <img src="img/data-binding.gif" class="no-border"/>
+</section>
 
 <section>
   <h1>Models</h1>
@@ -697,9 +814,14 @@
     </ul>
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/letok/1/edit">http://emberjs.jsbin.com/letok/1/edit</a>
 </section>
 
+
+<section>
+  <a href="http://emberjs.jsbin.com/letok/1/edit">http://emberjs.jsbin.com/letok/1/edit</a>
+  <hr />
+  <img src="img/models.gif" class="no-border"/>
+</section>
 
 <section>
   <h1>Fixture Adapter</h1>
@@ -725,8 +847,15 @@
     }
   });
   </code></pre>
-  <a href="http://emberjs.jsbin.com/vibeza/2/edit">http://emberjs.jsbin.com/vibeza/2/edit</a>
 </section>
+
+
+<section>
+  <a href="http://emberjs.jsbin.com/vibeza/2/edit">http://emberjs.jsbin.com/vibeza/2/edit</a>
+  <hr />
+  <img src="img/fixture-adapter.gif" class="no-border"/>
+</section>
+
 
 <section>
   <h2>Dynamic routes<br/><br/> & <br/><br/>Nested routes and templates</h2>
@@ -761,8 +890,15 @@
     {{outlet}}
   </script>
   </code></pre>
-  <a href="http://emberjs.jsbin.com/gekuw/1/edit">http://emberjs.jsbin.com/gekuw/1/edit</a>
 </section>
+
+
+<section>
+  <a href="http://emberjs.jsbin.com/gekuw/1/edit">http://emberjs.jsbin.com/gekuw/1/edit</a>
+  <hr />
+  <img src="img/nested-routes-templates.gif" class="no-border"/>
+</section>
+
 
 <section>
   <h1>Rendering a pattern</h1>
@@ -771,32 +907,37 @@
 </section>
 
 <section>
+  <h1>Components &amp; Views</h1>
+  <br />
+  <h3>Interaction &amp; DOM logic</h3>
+  <br />
+  <p class="fragment fade-in">This is the place for jQuery DOM selectors and<br/>integration with other JS libs.</p>
+  <br />
+  <p class="fragment fade-in">Probably.</p>
+</section>
+
+<section>
+  <h1>Differences</h1>
+  <br/><br/>
   <h2>Component</h2>
   <ul>
     <li>Isolated (No application context)</li>
     <li>Only knows about whatever you pass in to it</li>
   </ul>
   <br/><br/>
-  <br/><br/>
+  <div class="fragment fade-in">
   <h2>View</h2>
   <ul>
     <li>Not-Isolated (Has appication context)</li>
     <li>Knows about the controller for the current template</li>
   </ul>
-  <br/><br/>
-  <br/><br/>
-  <h2>Use Components if at all possible</h2>
+  </div>
+</section>
+<section>
+  <h1 class="fade-in">Use Components<br/> if possible</h1>
 </section>
 
-<section>
-  <h1>Components &amp; Views</h1>
-  <br />
-  <h3>Interaction logic</h3>
-  <br />
-  <p class="fragment fade-in">This is the place for jQuery DOM selectors and<br/>integration with other JS libs.</p>
-  <br />
-  <p class="fragment fade-in">Probably.</p>
-</section>
+
 <section>
   <h2>Views are rarely needed</h2>
   <br />
@@ -877,9 +1018,14 @@
     }.property('pattern.id')
   });
   </code></pre>
-  <a href="http://emberjs.jsbin.com/hatev/1/edit">http://emberjs.jsbin.com/hatev/1/edit</a>
 </section>
 
+
+<section>
+  <a href="http://emberjs.jsbin.com/hatev/1/edit">http://emberjs.jsbin.com/hatev/1/edit</a>
+  <hr />
+  <img src="img/pattern-display-component.gif" class="no-border"/>
+</section>
 
 
 
@@ -889,6 +1035,14 @@
 </section>
 
 <section>
+  <pre><code>
+  App.Router.map(function() {
+    this.resource('patterns',function(){
+      this.resource('pattern', { path: '/:pattern_id' });
+      this.route('new');
+    });
+  });
+  </code></pre>
   <pre><code class="javascript">
   {{#link-to 'patterns.new'}}New Pattern{{/link-to}}
   </code></pre>
@@ -904,14 +1058,7 @@
     {{pattern-display pattern=model width="256" height="256"}}
   </script>
   </code></pre>
-  <pre><code>
-  App.Router.map(function() {
-    this.resource('patterns',function(){
-      this.resource('pattern', { path: '/:pattern_id' });
-      this.route('new');
-    });
-  });
-  </code></pre>
+  
 </section>
 
 <section>
@@ -922,7 +1069,33 @@
     }
   });
   </code></pre>
+
+  <pre><code class="javascript">
+  App.PatternsNewController = Ember.ObjectController.extend({
+    actions : {
+      savePattern : function(){
+        this.transitionToRoute('pattern',this.get('model'));
+      },
+      randomize : function(){
+        this.setProperties({
+          p1 : Math.floor((Math.random() * 1000) + 1),
+          p2 : Math.floor((Math.random() * 1000) + 1),
+          p3 : Math.floor((Math.random() * 1000) + 1)
+        });
+      }
+    }
+  });
+  
+  </code></pre>
 </section>
+
+
+<section>
+  <a href="http://emberjs.jsbin.com/falat/8/edit">http://emberjs.jsbin.com/falat/8/edit</a>
+  <hr />
+  <img src="img/pattern-display-component.gif" class="no-border"/>
+</section>
+
 
 <section>
   <h1>Controllers</h1>
@@ -947,78 +1120,31 @@
 
 
 <section>
-  <pre><code class="javascript">
-  App.PatternsNewController = Ember.ObjectController.extend({
-    actions : {
-      savePattern : function(){
-        this.transitionToRoute('pattern',this.get('model'));
-      },
-      randomize : function(){
-        this.setProperties({
-          p1 : Math.floor((Math.random() * 1000) + 1),
-          p2 : Math.floor((Math.random() * 1000) + 1),
-          p3 : Math.floor((Math.random() * 1000) + 1)
-        });
-      }
-    }
-  });
-  
-  </code></pre>
-</section>
-
-<section>
   <h1>REST Adapter</h1>
 </section>
 
 <section>
-  <pre><code>
-  
+  <pre><code class="javascript">
+  App.ApplicationAdapter = DS.RESTAdapter.extend({
+    host : 'http://localhost:3000'
+  });
   </code></pre>
+  <pre><code class="javascript">
+  savePattern : function(){
+    var _this = this;
+    this.get('model').save().then(function(pattern){
+      _this.transitionToRoute('pattern',pattern);
+    });
+  }
+  </code></pre>
+  <a href="http://emberjs.jsbin.com/kimoyo/1/edit">http://emberjs.jsbin.com/kimoyo/1/edit</a>
 </section>
-
 
 <section>
-  <pre><code>
-  
-  </code></pre>
+  <h2>When to use Ember?</h2>
+  <br/><br/>
+  <h2>When NOT to use Ember?</h2>
 </section>
-
-
-<section>
-  <pre><code>
-  
-  </code></pre>
-</section>
-
-
-<section>
-  <pre><code>
-  
-  </code></pre>
-</section>
-
-
-<section>
-  <pre><code>
-  
-  </code></pre>
-</section>
-
-
-<section>
-  <pre><code>
-  
-  </code></pre>
-</section>
-
-
-
-<section>
-  <pre><code>
-  
-  </code></pre>
-</section>
-
 
 <!--
 <section>
@@ -1109,13 +1235,6 @@
 -->
 
 
-<section>
-  <h1>Views & Interaction</h1>
-</section>
-
-<section>
-  Ember Data
-</section>
 
 
 
@@ -1123,55 +1242,17 @@
 
 
 
-
-
-
-
-
-
-
-
-
-        <section data-background="img/memorial_tomster.jpg" data-state="title-slide">
-          <h1>You want this!</h1>
-        </section>
-
-
-
-        
-
-        <section data-background="img/window_tomster.jpg" data-state="title-slide">
-          <h1>Goals &amp; Reqs</h1>
-          
-        </section>
-
-        <section>
-          <h1>Goals &amp; Reqs</h1>
-          
-        </section>
 
         <section data-background="img/park_tomster.jpg" data-state="title-slide">
           <h1>Getting Started</h1>
-          
         </section>
 
-<section>
-<h1>Getting Started</h1>
-</section>
 
 
 
 <section data-background="img/ghost_ship_tomster.jpg" data-state="title-slide" data-transition="zoom">
   <h1>Authentication</h1>
 </section>
-
-<section>
-  <h1>Authentication</h1>
-</section>
-
-
-
-
 
 
 
@@ -1180,21 +1261,11 @@
   <h1 class="smaller">Leaving <code>localhost</code></h1>
 </section>
 
-<section>
-  <h1 class="smaller">Leaving <code>localhost</code></h1>
-</section>
-
-
-
-
 
 <section data-background="img/water_tomster.jpg" data-state="title-slide">
   <h1>Wrap Up</h1>
 </section>
 
-<section>
-  <h1>Wrap Up</h1>
-</section>
 
 
 <section data-background="img/bridge_tomster.jpg" data-state="title-slide last-slide">
