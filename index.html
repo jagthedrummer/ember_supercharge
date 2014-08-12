@@ -461,7 +461,7 @@
 
 
 <section>
-  <h3>Ember will 'auto generate' any parts of the stack that you don't write</h3>
+  <h2>Ember will 'auto generate'<br/><br/> any parts of the stack<br/><br/> that you don't write</h2>
 </section>
 <section>
   <h3>If you wanted to be explicit</h3>
@@ -738,7 +738,7 @@
   <pre class="fragment fade-in"><code class="html">
   <!-- app/views/static_pages/about.html.erb -->
   <h1>About</h1>
-  <p>Version : <%= @about_data['version'] %></p>
+  <p>Version : <%= @about_data[:version] %></p>
   </code></pre>
 </section>
 
@@ -748,6 +748,7 @@
   <h3>Controller setup</h3>
   <h3>Model creation/lookup/filtering</h3>
 </section>
+
 
 <section>
   <h1>Ember</h1>
@@ -775,6 +776,8 @@
   <hr />
   <img src="img/displaying-data.gif" class="no-border"/>
 </section>
+
+
 
 
 <section>
@@ -975,13 +978,15 @@
 
 
 <section>
-  <h1>Rendering a pattern</h1>
+  <h1 class="smaller">Rendering a pattern</h1>
+  <br/>
   <h2>Components and/or Views</h2>
+  <br/>
   <h2>Which one to use?</h2>
 </section>
 
 <section>
-  <h1>Components &amp; Views</h1>
+  <h1 class="smaller-yet">Components &amp; Views</h1>
   <br />
   <h3>Interaction &amp; DOM logic</h3>
   <br />
@@ -1008,10 +1013,10 @@
   </div>
 </section>
 <section>
-  <h1 class="fade-in">Use Components<br/> if possible</h1>
+  <h2 class="fade-in">Use Components<br/><br/> if possible</h2>
 </section>
 
-
+<!--
 <section>
   <h2>Views are rarely needed</h2>
   <br />
@@ -1026,14 +1031,15 @@
     Often, both of these requirements will be present at the same time.
   </blockquote>
 </section>
+-->
+<!--
 <section>
   <h3>
-    Views should receive raw browser events and translate them
+    Components &amp; Views should receive raw browser events and translate them
     into semantically meaningful actions within the app.
   </h3>
 </section>
-
-
+-->
 
 
 
@@ -1053,6 +1059,7 @@
   </code></pre>
 </section>
 <section>
+  <a href="http://amsqr.github.io/chromanin.js/texgen.html">Chromanin.js</a>
   <pre><code class="javascript">
   App.PatternDisplayComponent = Ember.Component.extend({
     drawPattern : function(){
@@ -1105,7 +1112,7 @@
 
 
 <section>
-  <h1>Create a new pattern</h1>
+  <h1 class="smaller-yet">Create a new pattern</h1>
 </section>
 
 <section>
@@ -1167,7 +1174,7 @@
 <section>
   <a href="http://emberjs.jsbin.com/falat/8/edit">http://emberjs.jsbin.com/falat/8/edit</a>
   <hr />
-  <img src="img/pattern-display-component.gif" class="no-border"/>
+  <img src="img/pattern-lab-demo.gif" class="no-border"/>
 </section>
 
 
@@ -1188,7 +1195,7 @@
   <br />
   <ul>
     <li class="fragment fade-in">ObjectController - represents one single model object.<br /><br /></li>
-    <li class="fragment face-in">ArrayController - represents a collection of model objects.</li>
+    <li class="fragment face-in">ArrayController - represents a collection of objects.</li>
   </ul>
 </section>
 
@@ -1211,7 +1218,7 @@
     });
   }
   </code></pre>
-  <a href="http://emberjs.jsbin.com/kimoyo/1/edit">http://emberjs.jsbin.com/kimoyo/1/edit</a>
+  <a href="http://emberjs.jsbin.com/kimoyo/2/edit">http://emberjs.jsbin.com/kimoyo/2/edit</a>
 </section>
 
 
@@ -1225,6 +1232,8 @@
   <h2>Ember is opinionated</h2>
   <br/><br/>
   <h2>Don't try to fight it</h2>
+  <br/><br/>
+  <h2>Just learn about those opinions</h2>
 </section>
 
 
@@ -1355,7 +1364,7 @@
       <td>
         <p>@jagthedrummer</p>
         <p>jeremy@octolabs.com</p>
-        <p><a href="http://www.octolabs.com/">http://www.octolabs.com/</a></p>
+        <p><a href="http://www.octolabs.com/thatconf2014">http://www.octolabs.com/thatconf2014</a></p>
       </td>
       <td>
         <img src="img/octologo.png" class="no-border">
