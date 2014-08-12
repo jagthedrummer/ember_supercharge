@@ -54,11 +54,15 @@
           </div-->
         </section>
 
+
+
 <section>
   <h1>Show of hands</h1>
   <br/>
   <ul>
     <li class="fragment fade-in">Who has experience with Ember?</li>
+    <br/>
+    <li class="fragment fade-in">Who has experience with single page apps?</li>
     <br/>
     <li class="fragment fade-in">Who has experience with Rails or .NET MVC?</li>
   </ul>
@@ -71,7 +75,7 @@
   <h2 class="">Where is it generated?</h2>
 </section>
 <section>
-  <h2>The 'traditional' web app</h2>
+  <h2>"Traditional" web apps</h2>
   <br />
   <ol>
     <li class="">Generate a giant string of HTML on the server<br/><br/></li>
@@ -81,7 +85,7 @@
   </ol>
 </section>
 <section>
-  <h2>An Ember web app</h2>
+  <h2>Single page apps</h2>
   <br />
   <ol>
     <li class="fade-in">Deliver empty application assets to the browser <br /><br /></li>
@@ -89,6 +93,40 @@
     <li class="fade-in">Assemble the 'document' in the browser</li>
   </ol>
 </section>
+
+
+<section data-background="img/ghost_ship_tomster.jpg" data-state="title-slide" data-transition="zoom">
+  <h1 class="smaller">Challenges of SPAs</h1>
+</section>
+
+<section>
+  <h1 class="smaller">Challenges of SPAs</h1>
+  <br/>
+  <ul>
+    <li>Rebuilding the <code>a</code> tag</li><br/>
+    <li>Data retrieval &amp; display<br/></li><br/>
+    <li>User interaction<br/></li><br/>
+    <li>Data synching<br/></li><br/>
+    <li>Manipulating the URL<br/></li><br/>
+    <li>Setting up initial state<br/></li><br/>
+  </ul>
+</section>
+
+
+<section data-background="img/elephant_tomster.jpg" data-state="title-slide">
+  <h1 class="smaller-yet">Ember to the rescue!</h1>
+</section>
+
+
+<section>
+  <h1 class="smaller-yet">Ember to the rescue!</h1>
+  <br/><br/>
+  <h2>Ember strives to solve all of these problems</h2>
+  <br/><br/>
+  <h2>in an opinionated way</h2>
+</section>
+
+
 
 <section>
   <h1>MVC<span class="fragment appear">-ish</span></h1>
@@ -105,9 +143,11 @@
     <li>Model</li>
     <li>View</li>
     <li>Controller</li>
-    <li class="fragment fade-in">Router</li>
-    <li class="fragment fade-in">Route</li>
-    <li class="fragment fade-in">Template</li>
+    <div class="fragment fade-in">
+    <li class="fade-in">Router</li>
+    <li class="fade-in">Route</li>
+    <li class="fade-in">Template</li>
+    </div>
   </ul>
 </section>
 <section>
@@ -324,6 +364,18 @@
 </section>
 
 
+<section data-background="img/elephant_tomster.jpg" data-state="title-slide">
+  <h1 class="smaller">PatternLab Demo</h1>
+</section>
+
+<section>
+  <h1 class="smaller">PatternLab Demo</h1>
+  <a href="http://emberjs.jsbin.com/falat/8/edit?output">http://emberjs.jsbin.com/falat/8/edit?output</a>
+  <hr/>
+  <img src="img/pattern-lab-demo.gif" class="no-border"/>
+</section>
+
+
 <section data-background="img/memorial_tomster.jpg" data-state="title-slide">
   <h1>The Plan</h1>
 </section>
@@ -343,17 +395,15 @@
 </section>
 
 
-<section>
-  <h2>PatternLab Demo</h2>
-  <a href="http://emberjs.jsbin.com/falat/8/edit?output">http://emberjs.jsbin.com/falat/8/edit?output</a>
-  <hr/>
-  <img src="img/pattern-lab-demo.gif" class="no-border"/>
+
+<section data-background="img/park_tomster.jpg" data-state="title-slide">
+  <h1>Getting Started</h1>
 </section>
 
-
-
 <section>
-  <h1>Starting With A Very Simple App</h1>
+  <h1>Getting Started</h1>
+  <br/><br/>
+  <h3>Starting With A Very Simple App</h3>
 </section>
 
 <section>
@@ -444,7 +494,7 @@
 </section>
 
 <section>
-  <h1>Application layout</h1>
+  <h1 class="smaller">Application layout</h1>
 </section>
 
 <section>
@@ -510,15 +560,19 @@
   # config/routes.rb
   Rails.application.routes.draw do
     # ...
-    get 'about' => 'static_pages#about'
+    get 'about' => 'static_pages#about', :as => :about
   end
   </code></pre>
-  <div class="fragment fade-in">
-  <pre><code class="ruby">
+  
+
+  <pre><code class="erb">
   <!-- app/views/static_pages/about.html.erb -->
   <h1>This app has not gotten any more useful...</h1>
   </code></pre>
-  </div>
+
+  <pre><code class="ruby">
+  <%= link_to 'About', about_path %>
+  </code></pre>
 </section>
 
 <section>
@@ -565,9 +619,10 @@
 </section>
 <section>
   <h3>Handlebars templates are dumb</h3>
-  <img src="img/troll.png" alt="" width="300" class="fragment fade-in"/>
-  <p class="fragment fade-in">They can't contain much logic.</p>
-  <p class="fragment fade-in">Logic goes in the View.</p>
+  <div class="fragment fade-in">
+  <img src="img/troll.png" alt="" width="300" class="fade-in"/>
+  <p class="fade-in">They can't contain much logic.</p>
+  </div>
 </section>
 <!--
 <section>
@@ -624,7 +679,7 @@
 
 
 <section>
-  <h1>Rendering Partials</h1>
+  <h1 class="smaller">Rendering Partials</h1>
 </section>
 
 <section>
@@ -764,8 +819,27 @@
     end
   end
   </code></pre>
-  <pre><code>
-  Route/controller/view stuff here!
+</section>
+
+<section>
+  <h1>Rails</h1>
+  <pre><code class="ruby">
+  resources :patterns
+  </code></pre>
+  <pre><code class="ruby">
+  class PatternsController < ApplicationController
+    def index
+      @patterns = Pattern.all
+    end
+  end
+  </code></pre>
+  <pre><code class="erb">
+  <h2>Latest Patterns</h2>
+  <ul>
+    <% @patterns.each do |pattern| %>
+      <li><%= pattern.name %></li>
+    <% end %>
+  </ul>
   </code></pre>
 </section>
 
@@ -1126,7 +1200,7 @@
 <section>
   <pre><code class="javascript">
   App.ApplicationAdapter = DS.RESTAdapter.extend({
-    host : 'http://localhost:3000'
+    host : 'http://pattern-lab-api.herokuapp.com'
   });
   </code></pre>
   <pre><code class="javascript">
@@ -1139,6 +1213,20 @@
   </code></pre>
   <a href="http://emberjs.jsbin.com/kimoyo/1/edit">http://emberjs.jsbin.com/kimoyo/1/edit</a>
 </section>
+
+
+<section data-background="img/water_tomster.jpg" data-state="title-slide">
+  <h1>Wrap Up</h1>
+</section>
+
+<section>
+  <h1>Wrap Up</h1>
+  <br/><br/>
+  <h2>Ember is opinionated</h2>
+  <br/><br/>
+  <h2>Don't try to fight it</h2>
+</section>
+
 
 <section>
   <h2>When to use Ember?</h2>
@@ -1243,28 +1331,19 @@
 
 
 
-        <section data-background="img/park_tomster.jpg" data-state="title-slide">
-          <h1>Getting Started</h1>
-        </section>
 
 
 
 
-<section data-background="img/ghost_ship_tomster.jpg" data-state="title-slide" data-transition="zoom">
-  <h1>Authentication</h1>
-</section>
 
 
 
 
-<section data-background="img/elephant_tomster.jpg" data-state="title-slide">
-  <h1 class="smaller">Leaving <code>localhost</code></h1>
-</section>
 
 
-<section data-background="img/water_tomster.jpg" data-state="title-slide">
-  <h1>Wrap Up</h1>
-</section>
+
+
+
 
 
 
